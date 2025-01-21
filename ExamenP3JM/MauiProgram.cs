@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using ExamenP3JM.Interfaces;
 
 namespace ExamenP3JM
 {
@@ -14,6 +15,8 @@ namespace ExamenP3JM
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<IPeliculaInterface, PeliculaInterface>();
+            builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

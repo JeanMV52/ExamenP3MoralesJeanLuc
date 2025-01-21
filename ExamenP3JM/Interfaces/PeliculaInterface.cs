@@ -10,7 +10,7 @@ namespace ExamenP3JM.Interfaces
         public async Task<List<Pelicula>> Obtener()
         {
             var client = new HttpClient();
-            var response = client.GetAsync(urlApi);
+            var response = await client.GetAsync(urlApi);
             var responseBody = await response.Content.ReadAsStringAsync();
             JsonNode resultsNode = JsonNode.Parse(responseBody);
             var peliculasData = JsonSerializer.Deserialize<List<Pelicula>>(resultsNode.ToString());
