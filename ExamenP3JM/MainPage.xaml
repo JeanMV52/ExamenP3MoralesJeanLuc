@@ -7,14 +7,35 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+
+            <Label 
+            x:Name="jmorales_labelNombre"
+            Text="Jean Luc Morales"
+            FontAttributes="Bold"
+            TextColor="Cyan" />
             
+            <Entry 
+            x:Name="jmorales_Busqueda" 
+            Placeholder="Ingrese el nombre de una película"
+            Text="{Binding TextoBusqueda}" />
+            
+            <Button
+                x:Name="JMorales_BuscarPelicula"
+                Text="Buscar" 
+                HorizontalOptions="Center"
+                Command="{Binding BuscarPelicula}" />
 
             <Button
-                x:Name="BuscarPelicula"
-                Text="Buscar" 
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                x:Name="JMorales_LimpiarBusqueda"
+                Text="Limpiar" 
+                HorizontalOptions="Center"
+                Command="{Binding LimpiarBusqueda}" />
+            
+            <Label 
+                x:Name="jmorales_labelResultado" 
+                Text="{Binding Resultado}" 
+                FontSize="Medium" />
+
         </VerticalStackLayout>
     </ScrollView>
 

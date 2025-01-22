@@ -8,7 +8,7 @@
     Title="ExamenP3JM">
 
     <ShellContent
-        Title="Home"
+        Title="BuscarPelicula"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
