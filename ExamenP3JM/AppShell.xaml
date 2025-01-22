@@ -7,9 +7,14 @@
     Shell.FlyoutBehavior="Disabled"
     Title="ExamenP3JM">
 
-    <ShellContent
-        Title="Buscador"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Buscador">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+        </Tab>
+
+        <Tab Title="Base de Datos">
+            <ShellContent ContentTemplate="{DataTemplate local:BDDPage}" Route="BDDPage"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

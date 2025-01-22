@@ -16,7 +16,7 @@ namespace ExamenP3JM
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.Services.AddSingleton<IPeliculaInterface, PeliculaInterface>();
-            builder.Services.AddTransient<MainPage>();
+            builder.Services.AddSingleton<AppShell>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
