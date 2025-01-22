@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using ExamenP3JM.Interfaces;
+using ExamenP3JM.Services;
 
 namespace ExamenP3JM
 {
@@ -15,6 +16,9 @@ namespace ExamenP3JM
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<BaseDatosSQLite>(s =>
+              new BaseDatosSQLite(Path.Combine(FileSystem.AppDataDirectory, "peliculas.db"))
+          );
             builder.Services.AddSingleton<IPeliculaInterface, PeliculaInterface>();
             builder.Services.AddSingleton<AppShell>();
 
