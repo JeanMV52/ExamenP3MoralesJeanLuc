@@ -6,7 +6,7 @@ namespace ExamenP3JM.Interfaces
 {
     public class PeliculaInterface : IPeliculaInterface
     {
-        private string urlApi = "https://freetestapi.com/api/v1/movies?search=inception";
+        private string urlApi = "https://freetestapi.com/api/v1/movies?";
         public async Task<List<Pelicula>> Obtener()
         {
             var client = new HttpClient();

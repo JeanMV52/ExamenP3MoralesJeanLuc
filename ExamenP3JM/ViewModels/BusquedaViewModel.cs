@@ -1,7 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using ExamenP3JM.Interfaces;
 using ExamenP3JM.Models;
+using System.Windows.Input;
 
 namespace ExamenP3JM.ViewModels
 {
@@ -30,12 +32,17 @@ namespace ExamenP3JM.ViewModels
             set => SetProperty(ref _peliculaEncontrada, value);
         }
 
+        public ICommand BuscarPelicula { get; }
+        public ICommand LimpiarBusqueda { get; }
+
         public BusquedaViewModel(IPeliculaInterface peliculaService)
         {
             _peliculaService = peliculaService;
+            BuscarPelicula = new Command(async () => await Buscar());
+            LimpiarBusqueda = new Command(Limpiar);
         }
 
-        public async Task BuscarPelicula()
+        public async Task Buscar()
         {
             if (string.IsNullOrWhiteSpace(TextoBusqueda))
             {
@@ -65,7 +72,7 @@ namespace ExamenP3JM.ViewModels
             }
         }
 
-        public void LimpiarBusqueda()
+        public void Limpiar()
         {
             TextoBusqueda = string.Empty;
             Resultado = string.Empty;
@@ -73,3 +80,4 @@ namespace ExamenP3JM.ViewModels
         }
     }
 }
+
